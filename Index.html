@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Weather APP</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="style.css">
+
+  </head>
+
+<body>
+
+  <header>
+    <div class="navbar">
+        <div class="nav-logo">
+            <div class="logo"></div>
+        </div>
+        <div class="nav-address">
+            <p class="add-first">Weather of</p>
+            <div class="add-icon">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="add-second">India</p>
+            </div>
+        </div>
+        <div class="nav-search">
+            <select class="search-select">
+                <option>all</option>
+            </select>
+            <input id="city" placeholder="Search city" aria-label="Search" class="form-control me-2" type="search">
+            <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+            <!-- <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div> -->
+        </div>
+
+        <div class="nav-singin">
+            <p><span>hello, sing in</span></p>
+            <p class="nav-second">Account</p>
+        </div>
+
+        <!-- <div class="nav-return border">
+            <p><span>Return</span></p>
+            <p class="nav-second">& Orders</p>
+        </div>
+
+        <div class="nav-cart border">
+            <i class="fa-solid fa-cart-shopping"></i>
+            cart
+        </div> -->
+
+    </div>
+
+    <div class="panel">
+        <div class="panel-all">
+            <i class="fa-solid fa-bars"></i>
+            all
+        </div>
+        <div class="panel-ops">
+            <p>Today's Weather</p>
+            <P>Hours</P>
+            <p>Daily</p>
+            <p>Monthly</p>
+            <p>Radar</p>
+        </div>
+        <div class="panel-deals">
+          AIR QUALITY
+        </div>
+    </div>
+
+</header>
+  <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Weather</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">about this app</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              How to use
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Delhi</a></li>
+              <li><a class="dropdown-item" href="#">Seattle</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Japan</a></li>
+            </ul>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">useage guid</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav> -->
+
+  <!-- <div class="hero" style="background-image: url(https://source.unsplash.com/1600x900/?weather);"> -->
+    <div class="hero" style="background-image: url(https://source.unsplash.com/1600x900/?weather);">
+
+      
+    
+  <h1 class="my-h4 text-center">Weather for <span id="cityName"></span></h1>
+
+  <div class="container">
+    <main>
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3 text-bg-primary border-primary">
+              <h4 class="my-0 fw-normal">Temperture</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="temp2"></span><span>&#8451;</span></small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Temperature is <span id="temp"></span></li>
+                <li>Min Temperature is <span id="min_temp"></span></li>
+                <li>Max Temperature is <span id="max_temp"></span></li>
+
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary">More Information</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3 text-bg-primary border-primary">
+              <h4 class="my-0 fw-normal">Humidity Info</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="humidity2"></span><small
+                  class="text-body-secondary fw-light">%</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Cloud PCT is <span id="cloud_pct"></span></li>
+                <li>Feels Like <span id="feels_like"></span></li>
+                <li>Humidity is <span id="humidity"></span></li>
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary">More Information</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3 text-bg-primary border-primary">
+              <h4 class="my-0 fw-normal">Wind Info</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="wind_speed2"></span></span><small
+                  class="text-body-secondary fw-light"> km/hr</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Wind Degree is <span id="wind_degrees"></span> </li>
+                <li>Wind Speed is <span id="wind_speed"></span> </li>
+                <li>Sunrise Time is <span id="sunrise1"></span></li>
+                <!-- <li>Sunset Time is <span id="sunset"></span></li> -->
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary">More Information</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="temp">
+      <div class="temperture-map">
+        <div class="temperatureMap">
+          <b>Temperature Map</b>
+        </div>
+  
+        <center>
+          <iframe width="700" height="400"
+            src="https://embed.windy.com/embed2.html?lat=14.264&amp;lon=72.905&amp;detailLat=14.264&amp;detailLon=72.905&amp;width=650&amp;height=450&amp;zoom=5&amp;level=surface&amp;overlay=temp&amp;product=ecmwf&amp;menu=&amp;message=&amp;marker=&amp;calendar=now&amp;pressure=&amp;type=map&amp;location=coordinates&amp;detail=&amp;metricWind=default&amp;metricTemp=default&amp;radarRange=-1"
+            frameborder="0">
+          </iframe>
+        </center>
+      </div>
+    </section>
+
+      <h2 class="display-6 text-center mb-4 background-color:blue" >Weather of other common place</h2>
+
+
+      <div class="table-responsive">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th style="width: 20%;"></th>
+              <!-- <th style="width: 22%;">Cloud_pct</th>
+              <th style="width: 22%;">Feels_like</th> -->
+              <th style="width: 11%;">Humidity</th>
+              <th style="width: 11%;">Max temp</th>
+              <th style="width: 11%;">Min temp</th>
+              <th style="width: 11%;">Sunrise</th>
+              <th style="width: 11%;">Sunset</th>
+              <th style="width: 11%;">Temp</th>
+              <!-- <th style="width: 22%;">Wind_degrees</th> -->
+              <th style="width: 11%;">Wind speed</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">New York</th>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <!-- <td>8</td>
+              <td>9</td>
+              <td>10</td> -->
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Goa</th>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <!-- <td>8</td>
+              <td>9</td>
+              <td>10</td> -->
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">Barcelona</th>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <!-- <td>8</td>
+              <td>9</td>
+              <td>10</td> -->
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Dubi</th>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <!-- <td>8</td>
+              <td>9</td>
+              <td>10</td> -->
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Tokyo</th>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <!-- <td>8</td>
+              <td>9</td>
+              <td>10</td> -->
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Australia</th>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <!-- <td>8</td>
+              <td>9</td>
+              <td>10</td> -->
+            </tr>
+          </tbody>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+
+  <footer>
+    <div class="foot-panel1">
+        back to Top
+    </div>
+
+    <div class="foot-panel2">
+        <ul>
+            <p>Get to Know Us</p>
+            <a>Careers</a>
+            <a>Blog</a>
+            <a>About Weather</a>
+            <a>Investor Relations</a>
+            <a>Weather Devices</a>
+            <a>Weather Science</a>
+
+        </ul>
+
+        <ul>
+            <p>Get to Know Us</p>
+            <a>Careers</a>
+            <a>Blog</a>
+            <a>About Weather</a>
+            <a>Investor Relations</a>
+            <a>Weather Devices</a>
+            <a>Weather Science</a>
+
+        </ul>
+
+    </div>
+
+    <div class="foot-panel3">
+        <div class="logo"></div>
+    </div>
+
+    <div class="foot-panel4">
+        <div class="pages">
+            <a>NO Conditions apply</a>
+            <a>100% Privacy </a>
+            <a>No Ads </a>
+        </div>
+
+        <div class="copyright">
+            © first day, my Weather.com, Inc.
+        </div>
+    </div>
+</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
